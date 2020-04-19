@@ -15,18 +15,7 @@ rails new todomvc -d postgresql
 cd todomvc
 rails generate scaffold Task name:string{42} completed:boolean
 rails generate scaffold Category name:string{18}
-rails generate migration categories_tasks
-```
-
-Configure the migration db/[TIMESTAMP]_categories_tasks.
-
-```
-def change
-  create_table :categories_tasks, :id => false do |t|
-    t.integer :category_id
-    t.integer :task_id
-  end
-end
+rails generate migration CreateJoinTableCategoryTask category task
 ```
 
 And the models app/model/*.rb
